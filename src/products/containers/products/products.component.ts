@@ -4,7 +4,9 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Pizza } from '../../models/pizza.model';
 
 import { Store } from '@ngrx/store';
+
 import * as fromStore from '../../store';
+
 
 
 @Component({
@@ -40,5 +42,6 @@ export class ProductsComponent implements OnInit {
   ngOnInit() {
      // this.store.select<any>(fromStore.getAllPizzas).subscribe(state => this.pizzas = state);
     this.pizzas$ = this.store.select<any>(fromStore.getAllPizzas);
+    this.store.dispatch(new fromStore.LoadPizzas())
   }
 }
