@@ -4,7 +4,7 @@ import { createSelector } from "@ngrx/store";
 import * as froomRoot from '../../../app/store'
 import * as fromFeature from '../reducers';
 import * as fromPizzas from '../reducers/pizzas.reducer';
-
+import * as fromToppings from './toppings.selectors';
 
 
 // pizza state
@@ -23,7 +23,15 @@ export const getSelectedPizza = createSelector(getPizzasEntities, froomRoot.getR
 
 
 
-
+export const getPizzaVisualized = createSelector(
+	getSelectedPizza,
+	fromToppings.getToppingEntities,
+	fromToppings.getSelectedToppings,
+	(pizza, toppingsEntities, selectedToppings) => { 
+		const toppings = selectedToppings.map(id => toppingsEntities[id]);
+		return { ...pizza, toppings };
+	 }
+);
 
 export const getPizzasLoaded = createSelector(getPizzaState, fromPizzas.getPizzasLoaded);
 export const getPizzasLoading = createSelector(getPizzaState, fromPizzas.getPizzasLoading);

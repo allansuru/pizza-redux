@@ -41,7 +41,9 @@ export class ProductItemComponent implements OnInit {
     this.pizza$ = this.store.select(fromStore.getSelectedPizza);
   }
 
-  onSelect(event: number[]) {}
+  onSelect(event: number[]) {
+    console.log(event);
+  }
 
   onCreate(event: Pizza) {}
 
