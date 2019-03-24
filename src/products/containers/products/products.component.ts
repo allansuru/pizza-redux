@@ -37,7 +37,7 @@ export class ProductsComponent implements OnInit {
   pizzas: Pizza[];
   pizzas$: Observable<Array<Pizza>>;
 
-  constructor(private store: Store<fromStore.ProductState>) {}
+  constructor(private store: Store<fromStore.ProductsState>) {}
 
   ngOnInit() {
      // this.store.select<any>(fromStore.getAllPizzas).subscribe(state => this.pizzas = state);

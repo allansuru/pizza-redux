@@ -1,63 +1,79 @@
+
 import * as fromToppings from '../actions/toppings.action';
-import { Topping } from './../../models/topping.model'
+import { Topping } from '../../models/topping.model';
 
-
-export interface ToppingState {
-	entities: { [id: number]: Topping },
-	loaded: boolean,
-	loading: boolean
+export interface ToppingsState {
+  entities: { [id: number]: Topping };
+  loaded: boolean;
+  loading: boolean;
+  selectedToppings: number[];
 }
 
-export const initialState: ToppingState = {
-	entities: {},
-	loaded: false,
-	loading: false
+export const initialState: ToppingsState = {
+  entities: {},
+  loaded: false,
+  loading: false,
+  selectedToppings: [],
 };
 
-export function reducer(state = initialState, action: fromToppings.ToppingsAction): ToppingState {
-	switch (action.type) {
-		case fromToppings.LOAD_TOPPINGS: {
-			return {
-				...state,
-				loading: true,
+export function reducer(
+  state = initialState,
+  action: fromToppings.ToppingsAction
+): ToppingsState {
+  switch (action.type) {
+    case fromToppings.VISUALISE_TOPPINGS: {
+      const selectedToppings = action.payload;
 
-			};
-		}
+      return {
+        ...state,
+        selectedToppings,
+      };
+    }
 
-		case fromToppings.LOAD_TOPPINGS_SUCCESS: {
-			//	console.log(action.payload)
-			const toppings  = action.payload;
+    case fromToppings.LOAD_TOPPINGS: {
+      return {
+        ...state,
+        loading: true,
+      };
+    }
 
-			const entities = toppings.reduce((entities: { [id: number]: Topping }, topping: Topping) => {
-				return {
-					...entities,
-					[topping.id]: topping
-				}
-			},
-				{
-					...state.entities
-				}
-			);
+    case fromToppings.LOAD_TOPPINGS_SUCCESS: {
+      const toppings = action.payload;
 
-			return {
-				...state,
-				loading: false,
-				loaded: true,
-				entities
-			};
-		}
+      const entities = toppings.reduce(
+        (entities: { [id: number]: Topping }, topping: Topping) => {
+          return {
+            ...entities,
+            [topping.id]: topping,
+          };
+        },
+        {
+          ...state.entities,
+        }
+      );
 
-		case fromToppings.LOAD_TOPPINGS_FAIL: {
-			return {
-				...state,
-				loading: false,
-				loaded: false
-			};
-		}
-	}
-	return state;
+      return {
+        ...state,
+        loaded: true,
+        loading: false,
+        entities,
+      };
+    }
+
+    case fromToppings.LOAD_TOPPINGS_FAIL: {
+      return {
+        ...state,
+        loaded: false,
+        loading: false,
+      };
+    }
+  }
+
+  return state;
 }
 
-export const getToppingsEntities = (state: ToppingState) => state.entities;
-export const getToppingsLoading = (state: ToppingState) => state.loading;
-export const getToppingsLoaded = (state: ToppingState) => state.loaded;
+export const getToppingEntities = (state: ToppingsState) => state.entities;
+export const getToppingsLoaded = (state: ToppingsState) => state.loaded;
+export const getToppingsLoading = (state: ToppingsState) => state.loading;
+export const getSelectedToppings = (state: ToppingsState) =>
+  state.selectedToppings;
