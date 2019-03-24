@@ -1,5 +1,3 @@
-import { PizzasAction } from '../actions/pizzas.action';
-import { Action } from '@ngrx/store';
 import { Injectable } from "@angular/core";
 
 import { Effect, Actions } from "@ngrx/effects"
