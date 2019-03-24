@@ -21,8 +21,6 @@ export const getSelectedPizza = createSelector(getPizzasEntities, froomRoot.getR
 	return router.state && entities[router.state.params.pizzaId];
 });
 
-
-
 export const getPizzaVisualized = createSelector(
 	getSelectedPizza,
 	fromToppings.getToppingEntities,
