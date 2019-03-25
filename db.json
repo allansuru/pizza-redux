@@ -127,6 +127,20 @@
         }
       ],
       "id": 6
+    },
+    {
+      "name": "Goof",
+      "toppings": [
+        {
+          "id": 1,
+          "name": "anchovy"
+        },
+        {
+          "id": 9,
+          "name": "pepper"
+        }
+      ],
+      "id": 7
     }
   ]
 }
