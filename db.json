@@ -95,26 +95,6 @@
       "id": 3
     },
     {
-      "name": "Ronaldo",
-      "toppings": [
-        {
-          "id": 12,
-          "name": "tomato"
-        }
-      ],
-      "id": 4
-    },
-    {
-      "name": "SuRU",
-      "toppings": [
-        {
-          "id": 12,
-          "name": "tomato"
-        }
-      ],
-      "id": 5
-    },
-    {
       "name": "Gui",
       "toppings": [
         {
@@ -127,48 +107,6 @@
         }
       ],
       "id": 6
-    },
-    {
-      "name": "Goof",
-      "toppings": [
-        {
-          "id": 1,
-          "name": "anchovy"
-        },
-        {
-          "id": 9,
-          "name": "pepper"
-        },
-        {
-          "id": 5,
-          "name": "mozzarella"
-        },
-        {
-          "id": 2,
-          "name": "bacon"
-        },
-        {
-          "id": 6,
-          "name": "mushroom"
-        },
-        {
-          "id": 10,
-          "name": "pepperoni"
-        },
-        {
-          "id": 3,
-          "name": "basil"
-        },
-        {
-          "id": 7,
-          "name": "olive"
-        },
-        {
-          "id": 11,
-          "name": "sweetcorn"
-        }
-      ],
-      "id": 7
     }
   ]
 }

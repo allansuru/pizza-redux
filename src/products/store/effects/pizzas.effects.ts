@@ -41,4 +41,13 @@ export class PizzasEffects {
 				map(pizza => new pizzaActions.UpdatePizzaSuccess(pizza)),
 				catchError(error => of(new pizzaActions.UpdatePizzaFail(error))))
 		}));
+	
+		@Effect()
+	removePizza$ = this.actions$.ofType(pizzaActions.REMOVE_PIZZA).pipe(
+		map((action: pizzaActions.RemovePizza) => action.payload),
+		switchMap(pizza => {
+			return this.pizzasService.removePizza(pizza).pipe(
+				map(pizza => new pizzaActions.RemovePizzaSuccess(pizza)),
+				catchError(error => of(new pizzaActions.RemovePizzaFail(error))))
+		}));
 }
