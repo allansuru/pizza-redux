@@ -95,26 +95,6 @@
       "id": 3
     },
     {
-      "name": "Ronaldo",
-      "toppings": [
-        {
-          "id": 12,
-          "name": "tomato"
-        }
-      ],
-      "id": 4
-    },
-    {
-      "name": "SuRU",
-      "toppings": [
-        {
-          "id": 12,
-          "name": "tomato"
-        }
-      ],
-      "id": 5
-    },
-    {
       "name": "Gui",
       "toppings": [
         {
