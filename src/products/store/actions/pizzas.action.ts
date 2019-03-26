@@ -50,8 +50,9 @@ export const UPDATE_PIZZA_FAIL = '[Products] Update Pizza Fail';
 export const UPDATE_PIZZA_SUCCESS = '[Products] Update Pizza Success';
 
 export class UpdatePizza implements Action {
+
 	readonly type = UPDATE_PIZZA;
-	constructor(public payload: Pizza) {}
+	constructor(public payload: Pizza) { 	console.log('UpdatePizza');}
 }
 
 export class UpdatePizzaFail implements Action {
@@ -63,7 +64,7 @@ export class UpdatePizzaFail implements Action {
 export class UpdatePizzaSuccess implements Action {
 	readonly type = UPDATE_PIZZA_SUCCESS;
 
-	constructor(public payload: Pizza) {}
+	constructor(public payload: Pizza) { 	console.log('UpdatePizzaSuccess');}
 }
 
 // Delete pizza
