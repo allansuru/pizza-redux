@@ -46,7 +46,7 @@ export class ProductItemComponent implements OnInit {
       })
     );
     this.toppings$ = this.store.select(fromStore.getAllToppings);
-    this.visualise$ = this.store.select(fromStore.getPizzaVisualized);
+    this.visualise$ = this.store.select(fromStore.getPizzaVisualised);
   }
 
   onSelect(event: number[]) {
