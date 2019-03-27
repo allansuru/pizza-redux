@@ -10,7 +10,7 @@ import * as fromStore from '../store';
 
 
 @Injectable()
-export class PizzasGuard implements CanActivate {
+export class ToppingsGuard implements CanActivate {
 
 	constructor(private store: Store<fromStore.ProductsState>){}
 
@@ -22,11 +22,11 @@ export class PizzasGuard implements CanActivate {
 	}
 
 	checkStore(): Observable<boolean> {
-		return this.store.select(fromStore.getPizzasLoaded)
+		return this.store.select(fromStore.getToppingsLoaded)
 			.pipe(
 				tap(loaded => {
 					if (!loaded) {
-						this.store.dispatch(new fromStore.LoadPizzas());
+						this.store.dispatch(new fromStore.LoadToppings());
 					}
 				}),
 				filter(loaded => loaded),
