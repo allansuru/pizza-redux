@@ -64,7 +64,6 @@ export class PizzasEffects {
 	removePizza$ = this.actions$.ofType(pizzaActions.REMOVE_PIZZA).pipe(
 		map((action: pizzaActions.RemovePizza) => action.payload),
 		switchMap(pizza => {
-			debugger
 			return this.pizzasService.removePizza(pizza).pipe(
 				map(()=> new pizzaActions.RemovePizzaSuccess(pizza)),
 				catchError(error => of(new pizzaActions.RemovePizzaFail(error))))
